@@ -35,6 +35,7 @@ pipeline {
       post {
         success {
           archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
+          s3Upload(file:'dist', bucket:'awsexampreparation', path:'/')
         }
       }
     }
